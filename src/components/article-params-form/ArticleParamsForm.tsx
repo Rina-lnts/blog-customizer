@@ -9,6 +9,7 @@ import { Separator } from 'src/ui/separator';
 
 import {
 	ArticleStateType,
+	OptionType,
 	defaultArticleState,
 	fontFamilyOptions,
 	fontColors,
@@ -49,6 +50,14 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 		};
 	}, [isOpen]);
 
+	const updateFormField =
+		(field: keyof ArticleStateType) => (value: OptionType) => {
+			setFormState((prev) => ({
+				...prev,
+				[field]: value,
+			}));
+		};
+
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 		onApply(formState);
@@ -74,9 +83,7 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 						title='Шрифт'
 						options={fontFamilyOptions}
 						selected={formState.fontFamilyOption}
-						onChange={(option) =>
-							setFormState((prev) => ({ ...prev, fontFamilyOption: option }))
-						}
+						onChange={updateFormField('fontFamilyOption')}
 					/>
 					<Separator />
 					<RadioGroup
@@ -84,36 +91,28 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 						name='fontSize'
 						options={fontSizeOptions}
 						selected={formState.fontSizeOption}
-						onChange={(option) =>
-							setFormState((prev) => ({ ...prev, fontSizeOption: option }))
-						}
+						onChange={updateFormField('fontSizeOption')}
 					/>
 					<Separator />
 					<Select
 						title='Цвет шрифта'
 						options={fontColors}
 						selected={formState.fontColor}
-						onChange={(option) =>
-							setFormState((prev) => ({ ...prev, fontColor: option }))
-						}
+						onChange={updateFormField('fontColor')}
 					/>
 					<Separator />
 					<Select
 						title='Цвет фона'
 						options={backgroundColors}
 						selected={formState.backgroundColor}
-						onChange={(option) =>
-							setFormState((prev) => ({ ...prev, backgroundColor: option }))
-						}
+						onChange={updateFormField('backgroundColor')}
 					/>
 					<Separator />
 					<Select
 						title='Ширина контента'
 						options={contentWidthArr}
 						selected={formState.contentWidth}
-						onChange={(option) =>
-							setFormState((prev) => ({ ...prev, contentWidth: option }))
-						}
+						onChange={updateFormField('contentWidth')}
 					/>
 					<div className={styles.bottomContainer}>
 						<Button
