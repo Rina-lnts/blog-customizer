@@ -6,6 +6,7 @@ import { Button } from 'src/ui/button';
 import { Select } from 'src/ui/select';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
+import { Text } from 'src/ui/text';
 
 import {
 	ArticleStateType,
@@ -79,6 +80,9 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 					[styles.container_open]: isOpen,
 				})}>
 				<form className={styles.form} onSubmit={handleSubmit}>
+				<Text as='h2' size={31} weight={800} uppercase>
+        Задайте параметры
+    </Text>
 					<Select
 						title='Шрифт'
 						options={fontFamilyOptions}
