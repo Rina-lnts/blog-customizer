@@ -85,7 +85,6 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 						selected={formState.fontFamilyOption}
 						onChange={updateFormField('fontFamilyOption')}
 					/>
-					<Separator />
 					<RadioGroup
 						title='Размер шрифта'
 						name='fontSize'
@@ -93,7 +92,6 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 						selected={formState.fontSizeOption}
 						onChange={updateFormField('fontSizeOption')}
 					/>
-					<Separator />
 					<Select
 						title='Цвет шрифта'
 						options={fontColors}
@@ -107,7 +105,6 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 						selected={formState.backgroundColor}
 						onChange={updateFormField('backgroundColor')}
 					/>
-					<Separator />
 					<Select
 						title='Ширина контента'
 						options={contentWidthArr}
