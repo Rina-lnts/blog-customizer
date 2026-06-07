@@ -16,6 +16,7 @@
 	display: flex;
 	flex-shrink: 0;
 	flex-direction: column;
+	gap: 50px;
 	box-sizing: border-box;
 	width: 616px;
 	height: auto;
@@ -24,6 +25,8 @@
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
 }
+
+
 
 .bottomContainer {
 	display: flex;
